@@ -1,0 +1,53 @@
+/*
+.btn04 {
+  position: relative;
+  display: inline-block;
+  padding: 16px 32px;
+  background: #e41313;
+  border: 2px solid #e41313;
+  border-radius: 4px;
+  color: #e41313;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  line-heigt: 1.2em;
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+
+.btn04 span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn04::before,
+.btn04::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 51%;
+  height: 100%;
+  -webkit-transition: .2s;
+  transition: .2s;
+  background-color: #ffffff;
+}
+
+.btn04::before {
+  left: 0;
+}
+
+.btn04::after {
+  right: 0;
+}
+
+.btn04:hover::before,
+.btn04:hover::after {
+  width: 0;
+  background: #ffffff;
+}
+
+.btn04:hover {
+  color: #ffffff;
+}
+*/

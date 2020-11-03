@@ -1,17 +1,15 @@
+import { ThemeProvider } from '@material-ui/core';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-
+import {LayoutContainer} from "./containers/LayoutContainer";
+import theme from "./styles/theme";
 const App: React.FC = () => {
-  return (
-    <div className="App">
-       <React.Fragment>
-        <h1>ここはApp</h1>
-      </React.Fragment>
-
-    </div>
-  );
+    return (
+        <React.Fragment>
+            <ThemeProvider theme={theme}>
+                <LayoutContainer />
+            </ThemeProvider>
+        </React.Fragment>
+    );
 }
 
 export default App;

@@ -1,16 +1,25 @@
-import { combineReducers, createStore, compose, applyMiddleware } from 'redux'
-import {Reducer, State} from '../reducers/reducers'
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import thunk from "redux-thunk"
-import main from './main'
+import {TokenReducer, ITokenState} from '../reducers/IRefreshToken';
+import {IconReducer, IUserIconState} from "../reducers/IUserIconState";
+import {PropertyReducer, IPropertyState} from "../reducers/IProperty";
+import {ILoginState, LoginReducer} from '../reducers/ILoginState';
+
 const storeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export type AppState = {
-    state: State
+export type IState = {
+    authInfo: ILoginState
+    property: IPropertyState
+    icon: IUserIconState
+    token: ITokenState
 }
 
 const store = createStore(
-    combineReducers<AppState>({
-        state: Reducer
-    }),
+    combineReducers<IState>({
+        authInfo: LoginReducer,
+        property: PropertyReducer,
+        icon: IconReducer,
+        token: TokenReducer,
+   }),
     storeEnhancers(applyMiddleware(thunk))
 )
 
