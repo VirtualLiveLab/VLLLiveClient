@@ -15,12 +15,15 @@ import TableBody from "@material-ui/core/TableBody";
 
 interface State {
     username: string,
-    iconFile: File}
-interface Style extends WithStyles<typeof styles> {}
+    iconFile: File
+}
+
+interface Style extends WithStyles<typeof styles> {
+}
+
 type Props = Style & IState & DispatchProps
 
 class ShowStateComponent extends React.Component<Props, State> {
-
     handleSetIcon(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget.files) {
             console.log("uploads")
@@ -49,26 +52,19 @@ class ShowStateComponent extends React.Component<Props, State> {
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer}/>
                     <Grid container spacing={3}>
-                        <TableRow>
-                            <TableCell>
-                                <Button variant={"contained"} color={"primary"} onClick={() => {
-                                    this.props.getUserProperty()
-                                }}>ユーザーデータの更新</Button>
-                            </TableCell>
-                            <TableCell>
-                                <Button variant={"contained"} color={"primary"} onClick={() => {
-                                    this.props.getRefreshToken()
-                                }}>TOkenの更新</Button>
-                            </TableCell>
-                            <TableCell>
-                                <Button variant={"contained"} color={"primary"} onClick={() => {
-                                    this.props.getUserIcon()
-                                }}>Iconの更新</Button>
-                            </TableCell>
+                        <Button variant={"contained"} color={"primary"} onClick={() => {
+                            this.props.getUserProperty()
+                        }}>ユーザーデータの更新</Button>
 
-                        </TableRow>
+                        <Button variant={"contained"} color={"primary"} onClick={() => {
+                            this.props.getRefreshToken()
+                        }}>Tokenの更新</Button>
+
+                        <Button variant={"contained"} color={"primary"} onClick={() => {
+                            this.props.getUserIcon()
+                        }}>Iconの更新</Button>
                     </Grid>
-                    <Container maxWidth="lg" className={classes.container} >
+                    <Container maxWidth="lg" className={classes.container}>
                         <Grid container spacing={3}>
                             <Paper className={fixedHeightPaper}>
                                 <Title>ユーザーデータ</Title>
@@ -90,14 +86,15 @@ class ShowStateComponent extends React.Component<Props, State> {
                                             </TableCell>
                                         </TableRow>
                                     </TableHead>
+                                    <TableBody>
+                                        <TableRow key={this.props.property.id}>
+                                            <TableCell>{this.props.property.userName}</TableCell>
+                                            <TableCell>{this.props.icon.iconPath}</TableCell>
+                                            <TableCell><img src={this.props.icon.iconPath} alt="iconImage" width={100}
+                                                            height={100}/></TableCell>
+                                        </TableRow>
+                                    </TableBody>
                                 </Table>
-                                <TableBody>
-                                    <TableRow key={this.props.property.id}>
-                                        <TableCell>{this.props.property.userName}</TableCell>
-                                        <TableCell>{this.props.icon.iconPath}</TableCell>
-                                        <img src={this.props.icon.iconPath} alt="iconImage" width={100} height={100}/>
-                                    </TableRow>
-                                </TableBody>
                             </Paper>
                         </Grid>
 
@@ -115,15 +112,15 @@ class ShowStateComponent extends React.Component<Props, State> {
                                             <TableCell>lastUpdatedtime</TableCell>
                                         </TableRow>
                                     </TableHead>
+                                    <TableBody>
+                                        <TableRow key={this.props.property.id}>
+                                            <TableCell>{this.props.token.apiToken}</TableCell>
+                                            <TableCell>{this.props.token.refreshToken}</TableCell>
+                                            <TableCell>{this.props.token.limit}</TableCell>
+                                            <TableCell>{this.props.token.lastUpdatedTime}</TableCell>
+                                        </TableRow>
+                                    </TableBody>
                                 </Table>
-                                <TableBody>
-                                    <TableRow key={this.props.property.id}>
-                                        <TableCell>{this.props.token.apiToken}</TableCell>
-                                        <TableCell>{this.props.token.refreshToken}</TableCell>
-                                        <TableCell>{this.props.token.limit}</TableCell>
-                                        <TableCell>{this.props.token.lastUpdatedTime}</TableCell>
-                                    </TableRow>
-                                </TableBody>
                             </Paper>
                         </Grid>
 
@@ -131,17 +128,24 @@ class ShowStateComponent extends React.Component<Props, State> {
                     <Container maxWidth="lg" className={classes.container}>
                         <Grid container spacing={3}>
                             <Paper className={fixedHeightPaper}>
-                                <Title>Recent Orders</Title>
-                                <TableBody>
-                                    <TableRow key={this.props.property.id}>
-                                        <TextField  id="standard-basic" label="Standard" onChange={e=>this.setState({username: e.target.value})}>
-                                            InputUsername
-                                        </TextField>
-                                        <Button onClick={()=> this.props.setUserProperty(this.state.username)}>
-                                            SetUserName
-                                        </Button>
-                                    </TableRow>
-                                </TableBody>
+                                <Table>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell>
+                                                <TextField id="standard-basic" label="Standard"
+                                                           onChange={e => this.setState({username: e.target.value})}>
+                                                    InputUsername
+                                                </TextField>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Button onClick={() => this.props.setUserProperty(this.state.username)}>
+                                                    SetUserName
+                                                </Button>
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
+
                             </Paper>
                         </Grid>
 

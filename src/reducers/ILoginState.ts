@@ -8,5 +8,7 @@ const init: ILoginState = {
     isLogin: false
 }
 export const LoginReducer = reducerWithInitialState(init)
-    .case(LoginAction.IsLogin, (state, payload) => {return {...state, isLogin: payload.valueOf()}})
+    .case(LoginAction.IsLogin, (state, payload) => {
+        return{...state, isLogin: payload}
+    })
 

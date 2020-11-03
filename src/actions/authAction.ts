@@ -13,19 +13,23 @@ export function get (url: string, action:(json: any)=>Action):void {
                 if (res.ok) action(data);
             }));
 }
-export function confirm (url: string, action:(ok:boolean)=>Action):void {fetch(root + url).then(res => action(res.ok))}
+export function confirm (url: string, action:(ok:boolean)=>Action):void {
+    fetch(root + url).then(res =>
+            action(res.ok)
 
-export function uploadFile(url: string, formData: FormData) {
-    fetch(root+url, {
-        method: 'POST',
-        body: formData,
-    }).then(res => res.json())
-        .then(result=>{
-            console.log('success', result)
-        }).catch(err => {
-            console.log(err);
-    })
-}
+    )}
+
+// export function uploadFile(url: string, formData: FormData) {
+//     fetch(root+url, {
+//         method: 'POST',
+//         body: formData,
+//     }).then(res => res.json())
+//         .then(result=>{
+//             console.log('success', result)
+//         }).catch(err => {
+//             console.log(err);
+//     })
+// }
 export function post(url: string, sendData: any, action:(json: any)=>Action):void {
     console.log("set")
     fetch(root+url, {
@@ -40,7 +44,7 @@ export function post(url: string, sendData: any, action:(json: any)=>Action):voi
 }
 //Actionの生成
 export const LoginAction = {
-    IsLogin: actionCreator<Boolean>("IsLogin"),
+    IsLogin: actionCreator<boolean>("IsLogin"),
     Logout: actionCreator("Logout"),
     getUserProperty: actionCreator<IPropertyState>("GetUserProperty"),
     getUserIcon:actionCreator<IUserIconState>("GetUserIcon"),

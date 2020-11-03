@@ -13,12 +13,9 @@ import {Home, Info, AccountCircle} from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
 import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "../../styles/mainStyle";
-interface UserData{
-    isLogin :boolean
-}
-interface Props extends WithStyles<typeof styles>{
-    user:UserData,
-
+import {ILoginState} from "../../reducers/ILoginState";
+import {AuthDispatchProps} from "../../containers/BarContainer";
+interface StyleProps extends WithStyles<typeof styles>{
 }
 
 interface State {
@@ -27,16 +24,19 @@ interface State {
         isOpen: boolean,
     }
 }
-
+type Props = StyleProps & ILoginState & AuthDispatchProps
 class Bar extends React.Component<Props, State>{
+    constructor(props: Props) {
+        super(props);
+        this.props.verifyLogin()
+    }
+
     state = {
         toggle: {
             w_side: "left",
             isOpen: false
         },
     }
-
-
     toggleDrawer(side: string, open: boolean) {
             this.setState({
                 toggle: {
@@ -47,11 +47,9 @@ class Bar extends React.Component<Props, State>{
         };
 
     render(){
-       // const user = this.state.userData;
         const {classes} = this.props;
-
-        var sideList;
-        if(!this.props.user.isLogin){
+        let sideList;
+        if(!this.props.isLogin){
             sideList = (
                 <div>
                     <List className={classes.nav}>
@@ -71,7 +69,7 @@ class Bar extends React.Component<Props, State>{
                         <AppListItem name={"トップページ"} link={"/"} Icon={Home}/>
                         <Divider/>
                         <AppListItem name={"ライブ情報"} link={"/about"} Icon={MenuIcon}/>
-                        <AppListItem name={"ユーザ情報"} link={"/info"} Icon={AccountCircle}/>
+                        <AppListItem name={"ユーザ情報"} link={"/account"} Icon={AccountCircle}/>
 
                         <Divider/>
                         <AppListItem name={"ログアウト"} link={"/logout"} Icon={Info} redirect={true}/>
@@ -79,19 +77,6 @@ class Bar extends React.Component<Props, State>{
                 </div>
             )
         }
-        // let userColumn;
-        // if(this.props.user != null) {
-        //     userColumn = (
-        //         <div>
-        //      {/*       <p>name : {this.props.user.userName}</p>
-        //             <p>pass : {this.props.user.userPass}</p>
-        //             <p>id : {this.props.user.userId}</p>*/}
-        //         </div>
-
-        //     )
-        // }else{
-    
-        // }
         return (
             <header>
                 <AppBar className={classes.appBar}>
