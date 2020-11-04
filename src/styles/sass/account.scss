@@ -1,0 +1,57 @@
+//@media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
+//    #home {
+//        margin-top: 140px;
+//        background-size: 100%;
+//    }
+//}
+
+#account{
+    text-align: center;
+    color: black;
+    padding: 20px;
+    margin: 120px 80px 100px 100px;
+    .paper{
+        display: flex;
+        padding-top:3%;
+        text-align: left;
+        background-color: white;
+        .trim {
+            padding-top: 5%;
+            padding-left: 10%;
+            .inner-img {
+                top: 5px;
+                position: relative;
+                width: 200px;
+                height: 200px;
+
+                border-radius:50%;
+            }
+        }
+
+
+        .h2{
+            padding: 10%;
+            position: relative;
+        }
+    }
+    .form{
+        display: flex;
+        position: center;
+        width: 80%;
+        height: auto;
+        min-height: 20px;
+        background: rgba(255,255,255,0.15);
+        padding: 10%;
+
+
+        .content{
+
+        }
+    }
+}
+
+.flex{
+    display: flex;
+    margin: 4px;
+    padding: 4px;
+}
