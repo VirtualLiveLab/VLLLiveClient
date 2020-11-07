@@ -23,7 +23,7 @@ class AppListItem extends React.Component<Props> {
 
     render() {
         return (
-            <ListItem button onClick={() => this.handleToLinkPage(this.props.link)}>
+            <ListItem button onClick={() =>this.props.redirect? this.handleToLinkPage(this.props.link) : {}} >
                 <ListItemIcon>
                     <this.props.Icon style={style}/>
                 </ListItemIcon>
