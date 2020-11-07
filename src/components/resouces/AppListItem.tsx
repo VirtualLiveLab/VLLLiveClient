@@ -1,18 +1,15 @@
 import * as React from 'react';
 import {SvgIconComponent} from "@material-ui/icons";
 import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-
 import { withRouter, RouteComponentProps} from 'react-router-dom'
 
-interface OwnProps extends RouteComponentProps {
-    // 親コンポーネントから渡ってきたpropsの型
-    // historyを渡す
-}
-interface Props extends OwnProps{
+interface Props extends RouteComponentProps{
     name: string,
     link: string,
     Icon: SvgIconComponent
 }
+
+const style ={ color: "white" }
 
 
 class AppListItem extends React.Component<Props> {
@@ -36,6 +33,3 @@ class AppListItem extends React.Component<Props> {
 
 export default withRouter(AppListItem);
 
-const style ={
-    color: "white"
-}

@@ -22,7 +22,7 @@ class AccountComponent extends React.Component<Props, State> {
         props.verifyLogin()
         this.props.getUserIcon()
         this.props.getUserProperty()
-        if(!this.props.authInfo.isLogin){
+        if (!this.props.authInfo.isLogin) {
             this.props.history.push('/')
         }
     }
@@ -34,18 +34,20 @@ class AccountComponent extends React.Component<Props, State> {
             alert("アイコンを読み込み中！！")
         }
     }
-    dataURLtoFile(dataurl: any, filename:string ): File {
+
+    dataURLtoFile(dataurl: any, filename: string): File {
         let arr = dataurl.split(','),
             mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]),
             n = bstr.length,
             u8arr = new Uint8Array(n);
 
-        while(n--){
+        while (n--) {
             u8arr[n] = bstr.charCodeAt(n);
         }
-        return new File([u8arr], filename, {type:mime});
+        return new File([u8arr], filename, {type: mime});
     }
+
     async handleSubmitIcon(url: string) {
         if (!url) {
             alert("アイコンをアップロードしてください")
@@ -53,7 +55,7 @@ class AccountComponent extends React.Component<Props, State> {
             return
         }
 
-        let file =await fetch(url).then(res =>res.blob())
+        let file = await fetch(url).then(res => res.blob())
             .then(blob => new File([blob], "img.png"))
 
         console.log("UPload")
@@ -83,32 +85,36 @@ class AccountComponent extends React.Component<Props, State> {
 
                                 <h2>ユーザーネームを変更する</h2>
                                 <div className={"container-item"}>
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="username"
-                                    label="new Username Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    autoFocus
-                                    onChange={(e) => {
-                                        this.setState({
-                                            newUsername: e.target.value
-                                        })
-                                    }}
-                                />
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        id="username"
+                                        label="new Username Address"
+                                        name="email"
+                                        autoComplete="email"
+                                        autoFocus
+                                        onChange={(e) => {
+                                            this.setState({
+                                                newUsername: e.target.value
+                                            })
+                                        }}
+                                    />
 
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    style={{color: "black"}}
-                                    className={"submit"}
-                                    onClick={() => {if(this.state.newUsername){this.props.setUserProperty(this.state.newUsername)}}}
-                                >
-                                    ユーザーデータ変更
-                                </Button>
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        style={{color: "black"}}
+                                        className={"submit"}
+                                        onClick={() => {
+                                            if (this.state.newUsername) {
+                                                this.props.setUserProperty(this.state.newUsername)
+                                            }
+                                        }}
+                                    >
+                                        ユーザーデータ変更
+                                    </Button>
                                 </div>
                                 <h2> アイコンを変更する</h2>
                                 <div className={"container-item"}>
@@ -137,7 +143,8 @@ class AccountComponent extends React.Component<Props, State> {
                                                     fullWidth
                                                     variant="contained"
                                                     style={{color: "black"}}
-                                                    className={"submit"} onClick={()=>this.handleSubmitIcon(croppedImageUrl)}>
+                                                    className={"submit"}
+                                                    onClick={() => this.handleSubmitIcon(croppedImageUrl)}>
                                                     変更する!!
                                                 </Button>
                                             </div>

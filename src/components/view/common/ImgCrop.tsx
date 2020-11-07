@@ -38,7 +38,6 @@ export default class ImgCrop extends React.Component<Props> {
         return new Promise((resolve, reject) => {
             canvas.toBlob(blob => {
                 if (!blob) {
-                    //reject(new Error('Canvas is empty'));
                     console.error('Canvas is empty');
                     return;
                 }
