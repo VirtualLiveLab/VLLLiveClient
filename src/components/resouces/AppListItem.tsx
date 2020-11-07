@@ -5,25 +5,27 @@ import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 import clientConfig from "../../utils/config";
 
-interface OwnProps extends RouteComponentProps {}
+interface OwnProps extends RouteComponentProps {
+    // 親コンポーネントから渡ってきたpropsの型
+    // historyを渡す
+}
 interface Props extends OwnProps{
     name: string,
     link: string,
     Icon: SvgIconComponent
-    redirect?: boolean
 }
 
-const style ={
-    color: "white"
-}
 
 class AppListItem extends React.Component<Props> {
 
-    handleToLinkPage = (link:string) => this.props.history.push(clientConfig.root + link)
-
+    async handleToLinkPage (link:string){
+        this.props.history.push(link)
+    }
     render() {
         return (
-            <ListItem button onClick={() =>this.props.redirect? this.handleToLinkPage(this.props.link) : {}} >
+            <ListItem button onClick={async () => {
+                await this.handleToLinkPage(this.props.link)
+            }}>
                 <ListItemIcon>
                     <this.props.Icon style={style}/>
                 </ListItemIcon>
@@ -35,3 +37,6 @@ class AppListItem extends React.Component<Props> {
 
 export default withRouter(AppListItem);
 
+const style ={
+    color: "white"
+}

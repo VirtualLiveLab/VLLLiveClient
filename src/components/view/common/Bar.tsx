@@ -15,7 +15,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "../../../styles/mainStyle";
 import {ILoginState} from "../../../reducers/ILoginState";
 import {AuthDispatchProps} from "../../../containers/BarContainer";
-interface StyleProps extends WithStyles<typeof styles>{
+import {Redirect} from "react-router";
+import clientConfig from "../../../utils/config";
+
+interface StyleProps extends WithStyles<typeof styles> {
 }
 
 interface State {
@@ -24,8 +27,10 @@ interface State {
         isOpen: boolean,
     }
 }
+
 type Props = StyleProps & ILoginState & AuthDispatchProps
-class Bar extends React.Component<Props, State>{
+
+class Bar extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.props.verifyLogin()
@@ -37,19 +42,20 @@ class Bar extends React.Component<Props, State>{
             isOpen: false
         },
     }
-    toggleDrawer(side: string, open: boolean) {
-            this.setState({
-                toggle: {
-                    w_side: side,
-                    isOpen: open
-                }
-            });
-        };
 
-    render(){
+    toggleDrawer(side: string, open: boolean) {
+        this.setState({
+            toggle: {
+                w_side: side,
+                isOpen: open
+            }
+        });
+    };
+
+    render() {
         const {classes} = this.props;
         let sideList;
-        if(!this.props.isLogin){
+        if (!this.props.isLogin) {
             sideList = (
                 <div>
                     <List className={classes.nav}>
@@ -59,7 +65,7 @@ class Bar extends React.Component<Props, State>{
                     </List>
                 </div>
             )
-        }else{
+        } else {
             sideList = (
                 <div>
                     <List className={classes.nav}>
@@ -68,7 +74,10 @@ class Bar extends React.Component<Props, State>{
                         <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
                         <AppListItem name={"ユーザ情報"} link={"/account"} Icon={AccountCircle}/>
                         <Divider/>
-                        <AppListItem name={"ログアウト"} link={"/logout"} Icon={Info} redirect={true}/>
+                        <a href={clientConfig.root + "/logout"}>
+                            <AppListItem name={"ログアウト"} link={"/logout"} Icon={Info}/>
+                        </a>
+
                     </List>
                 </div>
             )
@@ -76,7 +85,7 @@ class Bar extends React.Component<Props, State>{
         return (
             <header>
                 <AppBar className={classes.appBar}>
-                    <Toolbar >
+                    <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} color={"inherit"} aria-label="Menu"
                                     onClick={() => this.toggleDrawer('left', true)}>
                             <MenuIcon style={{color: "white"}}/>
@@ -109,4 +118,5 @@ class Bar extends React.Component<Props, State>{
         );
     }
 }
-export default  withStyles(styles, {withTheme: true})(Bar);
+
+export default withStyles(styles, {withTheme: true})(Bar);
