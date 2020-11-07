@@ -5,7 +5,7 @@ import Bg from "./common/Bg"
 import LiveAbout from "./join/JoinLayout"
 import {BarContainer} from '../../containers/BarContainer'
 import {AccountContainer} from "../../containers/AccountContainer"
-import {ShowStateContainer} from "../../containers/ShowStateContainer";
+//import {ShowStateContainer} from "../../containers/ShowStateContainer";
 import "../../styles/sass/main.scss"
 
 export default class Layout extends PureComponent {
@@ -19,7 +19,7 @@ export default class Layout extends PureComponent {
                     <div>
                         <Route exact path={"/"} render={() => <Main/>}/>
                         <Route exact path={"/about"} render={() => <LiveAbout/>}/>
-                        <Route exact path={"/show"} render={() => <ShowStateContainer/>}/>
+                        {/*<Route exact path={"/show"} render={() => <ShowStateContainer/>}/>*/}
                         <Route exact path={"/account"} render={() => <AccountContainer/>}/>
                     </div>
                 </BrowserRouter>

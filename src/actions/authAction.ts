@@ -4,8 +4,6 @@ import {IPropertyState} from "../reducers/IProperty";
 import {IUserIconState} from "../reducers/IUserIconState";
 import {ITokenState} from "../reducers/IRefreshToken";
 import store from '../store/store'
-import {Simulate} from "react-dom/test-utils";
-import waiting = Simulate.waiting;
 const actionCreator = actionCreatorFactory();
 const root :string = "http://localhost:3010";
 
@@ -88,5 +86,4 @@ export const LoginAction = {
     getUserProperty: actionCreator<IPropertyState>("GetUserProperty"),
     getUserIcon:actionCreator<IUserIconState>("GetUserIcon"),
     getApiToken: actionCreator<ITokenState>("GetApiToken"),
-    // setUserProperty:actionCreator("SetUserProperty")
 }
