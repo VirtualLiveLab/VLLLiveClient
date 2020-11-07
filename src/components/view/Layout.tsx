@@ -3,9 +3,9 @@ import {Route, BrowserRouter} from "react-router-dom"
 import Main from "./top/TopLayout"
 import Bg from "./common/Bg"
 import LiveAbout from "./join/JoinLayout"
-import {VerifyContainer} from '../../containers/VerifyContainer'
+import {BarContainer} from '../../containers/VerifyContainer'
 import {AccountContainer} from "../../containers/AccountContainer"
-//import {ShowStateContainer} from "../../containers/ShowStateContainer";
+//import {ShowStateContainer} from "../../containers/ShowStateContainer"; //Debug用
 import "../../styles/sass/main.scss"
 
 export default class Layout extends PureComponent {
@@ -15,7 +15,7 @@ export default class Layout extends PureComponent {
             <div>
                 <BrowserRouter>
                     <Bg/>
-                    <VerifyContainer/>
+                    <BarContainer/>
                     <div>
                         <Route exact path={"/"} render={() => <Main/>}/>
                         <Route exact path={"/about"} render={() => <LiveAbout/>}/>

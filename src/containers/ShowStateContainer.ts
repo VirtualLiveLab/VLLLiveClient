@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {IState} from "../store/store";
 import {Dispatch} from "redux";
-import {get, LoginAction, post, confirm} from "../actions/authAction"
+import {LoginAction, get, confirm, uploadFile, setUser} from "../actions/authAction"
 import ShowStateComponent from "../components/view/test/ShowStateComponent";
 
 export interface DispatchProps {
@@ -10,7 +10,7 @@ export interface DispatchProps {
     getUserProperty: () => void
     getUserIcon: () => void
     getApiToken: () => void
-    setIcon: (file: FormData) => void
+    setIcon: (file: File) => void
     setUserProperty: (username: string) => void
 }
 
@@ -28,11 +28,9 @@ function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
         }))),
         getUserIcon: () => get('/user/icon', json => dispatch(LoginAction.getUserIcon({iconPath: json.iconPath}))),
         getApiToken: () => get('/initial-token', json => dispatch(LoginAction.getApiToken({apiToken: json.apiToken}))),
-        setIcon:(file:FormData)=> post('/user/icon/set', file, json => dispatch(LoginAction.getUserIcon({iconPath: json.iconPath}))),
-        setUserProperty: (username: string) => post('/user/property', JSON.stringify({username: username}), json => dispatch(LoginAction.getUserProperty({
-            id: json.id,
-            userName: json.username
-        }))),
+        //ユーザーデータの変更
+        setIcon:async (f) => await uploadFile('/user/icon', f),
+        setUserProperty: async (username) => await setUser("/user/property", username)
     }
 }
 

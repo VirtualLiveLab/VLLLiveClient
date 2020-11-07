@@ -36,9 +36,7 @@ class ShowStateComponent extends React.Component<Props, State> {
             console.log("none")
             return
         }
-        const formData = new FormData()
-        formData.append('icon', this.state.iconFile)
-        this.props.setIcon(formData)
+        this.props.setIcon(this.state.iconFile)
     }
 
 
