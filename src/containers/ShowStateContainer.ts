@@ -2,7 +2,6 @@ import {connect} from 'react-redux'
 import {IState} from "../store/store";
 import {Dispatch} from "redux";
 import {get, LoginAction, post, confirm} from "../actions/authAction"
-import LayoutComponent from "../components/view/LayoutComponent";
 import ShowStateComponent from "../components/view/test/ShowStateComponent";
 
 export interface DispatchProps {
@@ -10,7 +9,7 @@ export interface DispatchProps {
     logout: () => void
     getUserProperty: () => void
     getUserIcon: () => void
-    getRefreshToken: () => void
+    getApiToken: () => void
     setIcon: (file: FormData) => void
     setUserProperty: (username: string) => void
 }
@@ -28,19 +27,13 @@ function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
             userName: json.username
         }))),
         getUserIcon: () => get('/user/icon', json => dispatch(LoginAction.getUserIcon({iconPath: json.iconPath}))),
-        getRefreshToken: () => get('/refresh_token', json => dispatch(LoginAction.getRefreshToken({
-            apiToken: json.apiToken,
-            refreshToken: json.refreshToken,
-            lastUpdatedTime: Date.now(),
-            limit: json.limit,
-        }))),
+        getApiToken: () => get('/initial-token', json => dispatch(LoginAction.getApiToken({apiToken: json.apiToken}))),
         setIcon:(file:FormData)=> post('/user/icon/set', file, json => dispatch(LoginAction.getUserIcon({iconPath: json.iconPath}))),
-        setUserProperty: (username: string) => post('/user/property/set', JSON.stringify({username: username}), json => dispatch(LoginAction.getUserProperty({
+        setUserProperty: (username: string) => post('/user/property', JSON.stringify({username: username}), json => dispatch(LoginAction.getUserProperty({
             id: json.id,
             userName: json.username
         }))),
     }
 }
 
-export const LayoutContainer = connect(mapStateToProps, mapDispatchToProps)(LayoutComponent)
-export const ShowContainer = connect(mapStateToProps, mapDispatchToProps)(ShowStateComponent);
+export const ShowStateContainer = connect(mapStateToProps, mapDispatchToProps)(ShowStateComponent);

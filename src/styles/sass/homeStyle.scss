@@ -1,14 +1,16 @@
 @media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
   #home {
-    margin-top: 140px;
+    margin-top: 12%;
     background-size: 56%;
-    padding-top: 0px;
+    padding-top: 50px;
   }
 }
 @media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
   #home {
-    margin-top: 140px;
+    margin-top: 30%;
     background-size: 100%;
+
+
   }
 }
 #home {
@@ -110,12 +112,14 @@ li {
 }
 @media screen and (max-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
   .button-container {
-    margin-top: auto;
+    margin-top: -300px;
+
   }
 }
-@media screen and (max-width: 767px){
+@media screen and (min-width: 767px){
   .button-container {
     margin-top: -120px;
+
   }
 }
 $btn04-font-color-before: rgba(200,0,100,0.98);
@@ -127,14 +131,25 @@ $btn05-font-color-before: rgba(0,200,200,0.98);
 $btn05-font-color-after: rgba(240,240,240,1);
 $btn05-before: rgba(10,10,10,0);
 $btn05-after: rgba(0,200,200,0.98);
+@media screen and (max-width: 767px) { /*ウィンドウ幅が767px以下の場合に適用*/
+  .auth {padding-top: 60%;}
+  .broadcast{padding-top: 90%; }
+}
+@media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
+  .auth{padding-top: 25%}
+  .broadcast{padding-top: 30%;}
+}
 .button-container {
 
+  text-align: center;
   display: inline-block;
+
   .google {
-    margin: 50px;
+    width: 160px;
+    margin: 30px;
     position: relative;
     display: inline-block;
-    padding: 16px 32px;
+    padding: 16px 30px;
     background-color: $btn04-before;
     border: 2px solid $btn04-font-color-before;
     //border-radius: 4px;
@@ -143,8 +158,8 @@ $btn05-after: rgba(0,200,200,0.98);
     font-size: 18px;
     font-weight: bold;
     //line-heigt: 0em;
-/*    -webkit-transition: 0s;
-    transition: 0s;*/
+    /*    -webkit-transition: 0s;
+        transition: 0s;*/
   }
 
   .google span {
@@ -190,15 +205,16 @@ $btn05-after: rgba(0,200,200,0.98);
 
   .google:hover {
     color: $btn04-font-color-after;
-   /* background-color: $btn04-before*/
+    /* background-color: $btn04-before*/
   }
 
 
   .twitter {
-    margin: 50px;
+    width: 160px;
+    margin: 30px;
     position: relative;
     display: inline-block;
-    padding: 16px 32px;
+    padding: 16px 30px;
     background-color: $btn05-before;
     border: 2px solid $btn05-font-color-before;
     //border-radius: 4px;

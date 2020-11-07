@@ -28,7 +28,7 @@ let config = {
 export default class Bg extends Component {
   render () {
     return (
-        <ParticlesBg type="fountain" config={config} bg={true} />
+        <ParticlesBg type="cobweb" config={config} bg={true} />
     )
   }
 }

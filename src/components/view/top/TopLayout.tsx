@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import About from "./About";
-import Footer from "./Footer";
+import TopHeader from "./TopHeader";
+import TopAbout from "./TopAbout";
+import Footer from "../common/Footer";
 interface State{
 
 }
@@ -10,7 +10,7 @@ interface Props {
 }
 // type Props = AuthState
 
-class Main extends React.Component<Props, State>{
+class TopLayout extends React.Component<Props, State>{
     componentDidMount() {
        // LoginAction.IsLogin.started();
     }
@@ -18,8 +18,8 @@ class Main extends React.Component<Props, State>{
     render() {
         return (
             <div className="App">
-                <Header/>
-                <About/>
+                <TopHeader/>
+                <TopAbout/>
                 <Footer/>
             </div>
         );
@@ -27,4 +27,4 @@ class Main extends React.Component<Props, State>{
 }
 
 
-export default Main;
+export default TopLayout;

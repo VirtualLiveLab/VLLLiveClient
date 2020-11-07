@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from "react";
 import {IState} from "../../../store/store";
-import {DispatchProps} from "../../../containers/LayoutContainer";
+import {DispatchProps} from "../../../containers/ShowStateContainer";
 import clsx from 'clsx';
 import {Button, Container, Grid, Paper, TextField, WithStyles} from "@material-ui/core"
 import withStyles from "@material-ui/core/styles/withStyles"
@@ -57,8 +57,8 @@ class ShowStateComponent extends React.Component<Props, State> {
                         }}>ユーザーデータの更新</Button>
 
                         <Button variant={"contained"} color={"primary"} onClick={() => {
-                            this.props.getRefreshToken()
-                        }}>Tokenの更新</Button>
+                            this.props.getApiToken()
+                        }}>Tokenの取得</Button>
 
                         <Button variant={"contained"} color={"primary"} onClick={() => {
                             this.props.getUserIcon()
@@ -107,23 +107,19 @@ class ShowStateComponent extends React.Component<Props, State> {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>ApiToken</TableCell>
-                                            <TableCell>RefreshToken</TableCell>
-                                            <TableCell>limit</TableCell>
-                                            <TableCell>lastUpdatedtime</TableCell>
+                                            <TableCell>InitialToken</TableCell>
+
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
                                         <TableRow key={this.props.property.id}>
                                             <TableCell>{this.props.token.apiToken}</TableCell>
-                                            <TableCell>{this.props.token.refreshToken}</TableCell>
-                                            <TableCell>{this.props.token.limit}</TableCell>
-                                            <TableCell>{this.props.token.lastUpdatedTime}</TableCell>
+                                            <TableCell>{"init token state"}</TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
                             </Paper>
                         </Grid>
-
                     </Container>
                     <Container maxWidth="lg" className={classes.container}>
                         <Grid container spacing={3}>
@@ -145,10 +141,8 @@ class ShowStateComponent extends React.Component<Props, State> {
                                         </TableRow>
                                     </TableBody>
                                 </Table>
-
                             </Paper>
                         </Grid>
-
                     </Container>
                 </main>
             </div>
