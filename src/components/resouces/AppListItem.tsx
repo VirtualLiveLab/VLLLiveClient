@@ -2,7 +2,7 @@ import * as React from 'react';
 import {SvgIconComponent} from "@material-ui/icons";
 import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 
-import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 
 interface OwnProps extends RouteComponentProps {
     // 親コンポーネントから渡ってきたpropsの型
@@ -28,17 +28,25 @@ class AppListItem extends React.Component<Props> {
 
         }*/
         this.props.history.push(link)
-
-
     }
     render() {
+        let column;
+        if(this.props.redirect){
+        column = (
+            <this.props.Icon style={style}>
+                <Redirect to="https://localhost:3010/logout"/>
+            </this.props.Icon>
+        )
+        }else{
+            column = (<this.props.Icon style={style}/>)
+        }
         return (
             <ListItem button onClick={async () => {
                 await this.handleToLinkPage(this.props.link)
             }}>
              {/*   <a href="http//localhost:3010/logout"></a>*/}
                 <ListItemIcon>
-                    {<this.props.Icon style={style}/>}
+                    {column}
                 </ListItemIcon>
                 <ListItemText primary={this.props.name} style={style}/>
             </ListItem>

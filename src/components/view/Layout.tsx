@@ -1,19 +1,15 @@
-import React from "react"
+import React, {PureComponent} from "react"
 import {Route, BrowserRouter} from "react-router-dom"
-import Main from "./Main"
-import Bg from "./Bg"
-import LiveAbout from "./LiveAbout"
-import {IState} from "../../store/store"
-import "../../styles/sass/main.scss"
+import Main from "./top/TopLayout"
+import Bg from "./common/Bg"
+import LiveAbout from "./join/JoinLayout"
 import {BarContainer} from '../../containers/BarContainer'
-import {DispatchProps, ShowContainer} from "../../containers/LayoutContainer"
 import {AccountContainer} from "../../containers/AccountContainer"
+import {ShowStateContainer} from "../../containers/ShowStateContainer";
+import "../../styles/sass/main.scss"
 
-interface Own {
-}
+export default class Layout extends PureComponent {
 
-type Props = Own & IState & DispatchProps
-export default class LayoutComponent extends React.Component<Props> {
     render() {
         return (
             <div>
@@ -23,7 +19,7 @@ export default class LayoutComponent extends React.Component<Props> {
                     <div>
                         <Route exact path={"/"} render={() => <Main/>}/>
                         <Route exact path={"/about"} render={() => <LiveAbout/>}/>
-                        <Route exact path={"/show"} render={() => <ShowContainer/>}/>
+                        <Route exact path={"/show"} render={() => <ShowStateContainer/>}/>
                         <Route exact path={"/account"} render={() => <AccountContainer/>}/>
                     </div>
                 </BrowserRouter>

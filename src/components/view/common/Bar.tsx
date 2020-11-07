@@ -8,13 +8,13 @@ import {
     WithStyles
 } from "@material-ui/core";
 import React from "react";
-import AppListItem from "../resouces/AppListItem"
+import AppListItem from "../../resouces/AppListItem"
 import {Home, Info, AccountCircle} from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
 import withStyles from "@material-ui/core/styles/withStyles";
-import styles from "../../styles/mainStyle";
-import {ILoginState} from "../../reducers/ILoginState";
-import {AuthDispatchProps} from "../../containers/BarContainer";
+import styles from "../../../styles/mainStyle";
+import {ILoginState} from "../../../reducers/ILoginState";
+import {AuthDispatchProps} from "../../../containers/BarContainer";
 interface StyleProps extends WithStyles<typeof styles>{
 }
 
@@ -55,10 +55,7 @@ class Bar extends React.Component<Props, State>{
                     <List className={classes.nav}>
                         <AppListItem name={"トップページ"} link={"/"} Icon={Home}/>
                         <Divider/>
-                        <AppListItem name={"ライブ情報"} link={"/about"} Icon={MenuIcon}/>
-                        <AppListItem name={"ぽむいけ"} link={"/register"} Icon={Info}/>
-                        <AppListItem name={"ぽむいけ"} link={"/register"} Icon={Info}/>
-                        <AppListItem name={"ぽむいけ"} link={"/register"} Icon={Info}/>
+                        <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
                     </List>
                 </div>
             )
@@ -68,9 +65,8 @@ class Bar extends React.Component<Props, State>{
                     <List className={classes.nav}>
                         <AppListItem name={"トップページ"} link={"/"} Icon={Home}/>
                         <Divider/>
-                        <AppListItem name={"ライブ情報"} link={"/about"} Icon={MenuIcon}/>
+                        <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
                         <AppListItem name={"ユーザ情報"} link={"/account"} Icon={AccountCircle}/>
-
                         <Divider/>
                         <AppListItem name={"ログアウト"} link={"/logout"} Icon={Info} redirect={true}/>
                     </List>

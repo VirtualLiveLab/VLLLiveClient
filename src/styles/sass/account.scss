@@ -1,17 +1,34 @@
-//@media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
-//    #home {
-//        margin-top: 140px;
-//        background-size: 100%;
-//    }
-//}
+@media screen and (max-width: 767px) {
+    #account {
+        padding: 0px;
+        margin-top: 20%;
+    }
+}
+@media screen and (min-width: 767px) {
+    #account {
+        margin-top: 8%;
+        margin-right: 5%;
+        margin-left: 5%;
+
+        padding: 0px;
+        .paper{
+            display: flex;}
+    }
+}
+
 
 #account{
+
     text-align: center;
     color: black;
-    padding: 20px;
-    margin: 120px 80px 100px 100px;
-    .paper{
+
+    .flex{
         display: flex;
+        margin: 4px;
+        padding: 4px;
+    }
+    .paper{
+        //display: flex;
         padding-top:3%;
         text-align: left;
         background-color: white;
@@ -50,8 +67,3 @@
     }
 }
 
-.flex{
-    display: flex;
-    margin: 4px;
-    padding: 4px;
-}

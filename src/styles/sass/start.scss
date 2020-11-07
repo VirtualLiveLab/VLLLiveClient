@@ -1,0 +1,30 @@
+.start {
+  //background: #FFF;
+  //position: fixed;
+  //top: 0;
+  //left: 0;
+  //height: 100%;
+  //width: 100%;
+  //z-index: 9000;
+  animation-name: fade-in;
+  //animation-delay:0s;
+  animation-duration: 10s;
+}
+
+//.start p {
+//  position: fixed;
+//  left: 50%;
+//  top: 50%;
+//  transform: translate(-50%, -50%);
+//  display: none;
+//  z-index: 9999;
+//  width: 280px;
+//}
+
+@keyframes fadeIn { /*animetion-nameで設定した値を書く*/
+
+  0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
+
+  100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
+
+}
