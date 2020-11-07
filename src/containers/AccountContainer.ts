@@ -21,12 +21,8 @@ function mapDispatchToProps (dispatch: Dispatch): AccountDispatchProps {
         getUserProperty:()=> get('/user/property', json => dispatch(LoginAction.getUserProperty({id: json.id, userName: json.username}))),
         getUserIcon:()=> get('/user/icon', json => dispatch(LoginAction.getUserIcon({iconPath: json.iconPath}))),
         //ユーザーデータの変更
-        setIcon:(f) => uploadFile('/user/icon', f),
-        setUserProperty:(username) => {
-            console.log(username)
-            setUser("/user/property", username)
-
-        }
+        setIcon:async (f) => await uploadFile('/user/icon', f),
+        setUserProperty: async (username) => await setUser("/user/property", username)
     }
 }
 export const AccountContainer = connect(mapStateToProps, mapDispatchToProps)(AccountComponent)

@@ -14,8 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "../../../styles/mainStyle";
 import {ILoginState} from "../../../reducers/ILoginState";
-import {AuthDispatchProps} from "../../../containers/BarContainer";
-import {Redirect} from "react-router";
+import {AuthDispatchProps} from "../../../containers/VerifyContainer";
 import clientConfig from "../../../utils/config";
 
 interface StyleProps extends WithStyles<typeof styles> {

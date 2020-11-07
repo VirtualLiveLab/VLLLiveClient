@@ -2,8 +2,7 @@ import * as React from 'react';
 import {SvgIconComponent} from "@material-ui/icons";
 import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 
-import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
-import clientConfig from "../../utils/config";
+import { withRouter, RouteComponentProps} from 'react-router-dom'
 
 interface OwnProps extends RouteComponentProps {
     // 親コンポーネントから渡ってきたpropsの型

@@ -4,6 +4,7 @@ import {Dispatch} from "redux";
 import {LoginAction, confirm} from "../actions/authAction"
 import Bar from "../components/view/common/Bar";
 import {ILoginState} from "../reducers/ILoginState";
+import JoinAbout from "../components/view/join/JoinAbout";
 
 export interface AuthDispatchProps {
     verifyLogin: () => void
@@ -18,3 +19,4 @@ function mapDispatchToProps (dispatch: Dispatch): AuthDispatchProps {
     }
 }
 export const BarContainer = connect(mapStateToProps, mapDispatchToProps)(Bar)
+export const JoinAboutContainer = connect(mapStateToProps, mapDispatchToProps)(JoinAbout)

@@ -30,7 +30,7 @@ export const uploadFile = async (url: string, file: File) : Promise<any> => {
         referrerPolicy: 'no-referrer',
         body: formData,
     }).catch(err => console.log(err))
-    await sleep(1000);
+    await sleep(3000);
     store.dispatch(LoginAction.getUserIcon)
 }
 export const setUser = async (url: string, name: string): Promise<any> =>{
@@ -51,34 +51,11 @@ export const setUser = async (url: string, name: string): Promise<any> =>{
         referrerPolicy: 'no-referrer',
         body: data,
     }).catch(err => console.log(err))
-    await sleep(1000);
+    await sleep(3000);
     store.dispatch(LoginAction.getUserProperty)
 }
 const sleep = (msec: number)=> new Promise(resolve => setTimeout(resolve, msec));
-export function post(url: string, sendData: any, action?:(json?: any)=>Action):void {
-    //if(sendData==null) return;
-    console.log(sendData)
-    fetch(root+url, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        credentials: "same-origin",
-        mode: 'cors',
-        cache: 'no-cache',
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: sendData,
-    }).then(res => res.json())
-        .then(result=>{
-            if(action)action(result)
-            console.log('success', result)
-        }).catch(err => {
-        console.log(err);
-    })
-}
+
 //Actionの生成
 export const LoginAction = {
     IsLogin: actionCreator<boolean>("IsLogin"),

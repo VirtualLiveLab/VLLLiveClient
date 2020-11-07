@@ -3,7 +3,7 @@ import {Route, BrowserRouter} from "react-router-dom"
 import Main from "./top/TopLayout"
 import Bg from "./common/Bg"
 import LiveAbout from "./join/JoinLayout"
-import {BarContainer} from '../../containers/BarContainer'
+import {VerifyContainer} from '../../containers/VerifyContainer'
 import {AccountContainer} from "../../containers/AccountContainer"
 //import {ShowStateContainer} from "../../containers/ShowStateContainer";
 import "../../styles/sass/main.scss"
@@ -15,7 +15,7 @@ export default class Layout extends PureComponent {
             <div>
                 <BrowserRouter>
                     <Bg/>
-                    <BarContainer/>
+                    <VerifyContainer/>
                     <div>
                         <Route exact path={"/"} render={() => <Main/>}/>
                         <Route exact path={"/about"} render={() => <LiveAbout/>}/>

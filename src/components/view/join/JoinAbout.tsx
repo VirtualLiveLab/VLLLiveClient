@@ -2,9 +2,16 @@ import React, {Component} from "react";
 import {Button} from "@material-ui/core";
 import clientConfig from "../../../utils/config";
 import {Link} from "react-router-dom";
-
-class JoinAbout extends Component {
+import {ILoginState} from "../../../reducers/ILoginState";
+import {AuthDispatchProps} from "../../../containers/VerifyContainer";
+type Props = ILoginState & AuthDispatchProps
+class JoinAbout extends Component<Props> {
+    constructor(props:Props) {
+        super(props);
+        this.props.verifyLogin()
+    }
     render(){
+        const isLogin = this.props.isLogin
         return(
             <div className={"live-about"}>
                 <div className="container">
@@ -29,8 +36,8 @@ class JoinAbout extends Component {
                         <div className={"center"}>
                             <h2 className={"line"}><p>その②</p><p>アプリケーションのダウンロード</p></h2>
                             <p>
-                                <Button variant={"outlined"} color={"primary"}>
-                                    <a href={clientConfig.zip}>ダウンロードする!!</a>
+                                <Button variant={"outlined"} color={"primary"} onClick={()=>{if(!isLogin)alert('ログインしてください')}}>
+                                    {isLogin ? <a href={clientConfig.zip}>ダウンロードする!!</a> : "ダウンロードする!!"}
                                 </Button> ←こちらのリンクからアプリケーションの入ったzipファイルをダウンロードします
                             </p>
                             <p> 注: 対応OS(WindowsPC)</p>
@@ -49,8 +56,8 @@ class JoinAbout extends Component {
                             <p>ライブアプリを開くと認証のための鍵を必要とされるので</p>
                             <p>
 
-                                <Button variant={"outlined"} color={"primary"}>
-                                    <a href={clientConfig.qr}>ダウンロードする!!</a>
+                                <Button variant={"outlined"} color={"primary"} onClick={()=>{if(!isLogin)alert('ログインしてください')}}>
+                                    {isLogin ? <a href={clientConfig.qr}>ダウンロードする!!</a> : "ダウンロードする!!"}
                                 </Button> ←こちらのリンクから認証キーををダウンロードして(有効期限15分)
 
                             </p>
