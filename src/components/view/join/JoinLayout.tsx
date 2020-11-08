@@ -1,10 +1,8 @@
 import React from "react";
-import JoinAbout from "./JoinAbout";
 import JoinHeader from "./JoinHeader";
 import Footer from "../common/Footer";
 import {JoinAboutContainer} from "../../../containers/VerifyContainer";
-interface Props{}
-export default class JoinLayout extends React.Component<Props> {
+export default class JoinLayout extends React.PureComponent {
     render(){
         return(
             <div className = "App" >

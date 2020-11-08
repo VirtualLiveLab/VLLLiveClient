@@ -1,5 +1,6 @@
 .container{
     display: grid; gap: 10px;
+    .welcome{font-size: 50px}
     .top{ color: #2F2D2E;font-weight: 3000; }
     .sub{ color: #2F2D2E;font-weight: 200; }
     .border {border-bottom: 3px solid gray;}

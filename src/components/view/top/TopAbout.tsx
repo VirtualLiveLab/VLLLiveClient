@@ -15,15 +15,6 @@ export default class TopAbout extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
-
-                <div className="container">
-                    <div className={"container-item"}>
-                        <div className={"center"}>
-                            {/*<h2 className={"sub"}>MIKUEC2020</h2>*/}
-                            {/*<h2 className={"sub"}>~Narange is war~</h2>*/}
-                        </div>
-                    </div>
-                </div>
                 <div className="container">
                     <div className={"container-item"}>
                         <div className={"center"}>
@@ -52,8 +43,9 @@ export default class TopAbout extends React.Component<any, any> {
                                 <div className={"container-item center"}>
                                     <div className="arrow-bottom"/>
                                 </div>
-                                <Button variant={"outlined"} color={"primary"}> <Link
-                                    to={"/about"}>詳しい参加方法を見る</Link></Button>
+                                <Button variant={"outlined"} color={"primary"}>
+                                    <Link to={"/"}>Topへ移動する</Link>
+                                </Button>
                                 </div>
                                 <div className={"container-item center"}>
                                 <h2>参加方法そのB: ライブ配信を視聴する</h2>
@@ -63,9 +55,9 @@ export default class TopAbout extends React.Component<any, any> {
                                 <div className={"container-item center"}>
                                     <ul className="button-container">
                                         <div className={"broadcast"}>
-                                        <a className={"btn04 google"} href={clientConfig.googleLogin} onClick={() => {
+                                        <a className={"btn04 google"} href={clientConfig.youtube} onClick={() => {
                                         }}><span>Youtube</span></a>
-                                        <a className={"btn04 twitter"} href={clientConfig.twitterLogin} onClick={() => {
+                                        <a className={"btn04 twitter"} href={clientConfig.niconico} onClick={() => {
                                         }}><span>ニコニコ動画</span></a>
                                         </div>
                                     </ul>
@@ -80,7 +72,7 @@ export default class TopAbout extends React.Component<any, any> {
                         <div className={"center"}>
                             <h2 className={"line"}>料金</h2>
                             <h2>無料</h2>
-                            <p>定員は1500人になっています</p>
+                            <p>※定員は1500人になっていますのでアカウント登録は早めに！！</p>
                         </div>
                     </div>
                 </div>
@@ -89,8 +81,8 @@ export default class TopAbout extends React.Component<any, any> {
                         <div className={"center"}>
                             <h2 className={"line"}>HP</h2>
                             <h2>MIKUEC2020の特設サイトが公開中</h2>
-                            <p>電気通信大学公認サークル「バーチャルライブ研究会」が公開する</p>
-                            <p>VLLの部員が作成したギャラリーが公開中</p>
+                            <p>電気通信大学公認サークル「バーチャルライブ研究会」の</p>
+                            <p>部員が作成したギャラリーが公開中</p>
 
                             <Button variant="outlined" color={"primary"}>
                                 <a href={"https://mikuec.com/2020/"}>

@@ -1,24 +1,13 @@
 import React from "react";
-import TopHeader from "./TopHeader";
 import TopAbout from "./TopAbout";
 import Footer from "../common/Footer";
-interface State{
+import {TopHeaderContainer} from "../../../containers/TopHeaderContainer"
 
-}
-interface Props {
-
-}
-// type Props = AuthState
-
-class TopLayout extends React.Component<Props, State>{
-    componentDidMount() {
-       // LoginAction.IsLogin.started();
-    }
-
+class TopLayout extends React.PureComponent{
     render() {
         return (
             <div className="App">
-                <TopHeader/>
+                <TopHeaderContainer/>
                 <TopAbout/>
                 <Footer/>
             </div>

@@ -3,13 +3,8 @@ import {Button} from "@material-ui/core";
 import clientConfig from "../../../utils/config";
 import {Link} from "react-router-dom";
 import {ILoginState} from "../../../reducers/ILoginState";
-import {AuthDispatchProps} from "../../../containers/VerifyContainer";
-type Props = ILoginState & AuthDispatchProps
+type Props = ILoginState
 class JoinAbout extends Component<Props> {
-    constructor(props:Props) {
-        super(props);
-        this.props.verifyLogin()
-    }
     render(){
         const isLogin = this.props.isLogin
         return(

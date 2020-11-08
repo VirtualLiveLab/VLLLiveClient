@@ -29,7 +29,7 @@ export const uploadFile = async (url: string, file: File) : Promise<any> => {
     store.dispatch(LoginAction.getUserIcon)
 }
 export const setUser = async (url: string, name: string): Promise<any> =>{
-    if(name == '' || !name) return
+    if(name === '' || !name) return
     const data = JSON.stringify({username: name})
     await fetch(root+url, {
         method: 'POST',

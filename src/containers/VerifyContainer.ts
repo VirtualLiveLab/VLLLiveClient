@@ -19,4 +19,4 @@ function mapDispatchToProps (dispatch: Dispatch): AuthDispatchProps {
     }
 }
 export const BarContainer = connect(mapStateToProps, mapDispatchToProps)(Bar)
-export const JoinAboutContainer = connect(mapStateToProps, mapDispatchToProps)(JoinAbout)
+export const JoinAboutContainer = connect(mapStateToProps)(JoinAbout)
