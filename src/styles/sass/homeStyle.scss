@@ -137,14 +137,13 @@ $btn05-before: rgba(10,10,10,0);
 $btn05-after: rgba(0,200,200,0.98);
 @media screen and (max-width: 767px) { /*ウィンドウ幅が767px以下の場合に適用*/
   .auth {padding-top: 60%;}
-  .broadcast{padding-top: 90%; }
+  .broadcast{padding-top: 100%; }
 }
 @media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
   .auth{padding-top: 25%}
-  .broadcast{padding-top: 30%;}
+  .broadcast{padding-top: 50%;}
 }
 .button-container {
-
   text-align: center;
   display: inline-block;
 

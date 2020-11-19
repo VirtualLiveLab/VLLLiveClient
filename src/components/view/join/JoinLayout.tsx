@@ -1,7 +1,7 @@
 import React from "react";
 import JoinHeader from "./JoinHeader";
 import Footer from "../common/Footer";
-import {JoinAboutContainer} from "../../../containers/VerifyContainer";
+import {JoinAboutContainer} from "../../../containers/AccountContainer";
 export default class JoinLayout extends React.PureComponent {
     render(){
         return(

@@ -11,6 +11,7 @@ import {RouteComponentProps} from "react-router-dom";
 interface State {
     newUsername: string
     iconFile: File
+    withdraw: string
 }
 
 type Props = IState & AccountDispatchProps & RouteComponentProps
@@ -22,14 +23,17 @@ class AccountComponent extends React.Component<Props, State> {
         props.verifyLogin()
         this.props.getUserIcon()
         this.props.getUserProperty()
+
         if (!this.props.authInfo.isLogin) {
             this.props.history.push('/')
         }
     }
+    componentDidMount() {
+        this.setState({withdraw: ""})
+    }
 
     handleSetIcon(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget.files) {
-            console.log("uploads")
             this.setState({iconFile: e.currentTarget.files[0]})
             alert("アイコンを読み込み中！！")
         }
@@ -57,9 +61,8 @@ class AccountComponent extends React.Component<Props, State> {
 
         let file = await fetch(url).then(res => res.blob())
             .then(blob => new File([blob], "img.png"))
+        this.props.setIcon(file, this.props.cropImg.croppedImageUrl)
 
-        console.log("UPload")
-        this.props.setIcon(file)
         //alert("アイコンを変更します！！")
         //アイコン変更後のCropImageの初期化
 
@@ -74,7 +77,7 @@ class AccountComponent extends React.Component<Props, State> {
         return (
             <section id={"account"}>
                 <Container maxWidth="lg" className={"container"}>
-                    <Paper className={"paper"}>
+                    <Paper className={"paper container-item"}>
                         <div className={"trim"}>
                             <img className={"inner-img"} src={iconPath} alt="iconImage"/>
                             <h2> {property.userName}さん</h2>
@@ -108,9 +111,7 @@ class AccountComponent extends React.Component<Props, State> {
                                         style={{color: "black"}}
                                         className={"submit"}
                                         onClick={() => {
-                                            if (this.state.newUsername) {
-                                                this.props.setUserProperty(this.state.newUsername)
-                                            }
+                                            if (this.state.newUsername) {this.props.setUserProperty(this.props.property.id, this.state.newUsername)}
                                         }}
                                     >
                                         ユーザーデータ変更
@@ -153,8 +154,45 @@ class AccountComponent extends React.Component<Props, State> {
                                 )}
 
                             </div>
+
                         </form>
                     </Paper>
+         {/*           <Paper className={"paper container-item"}>
+                        <form className={"form"} noValidate>
+
+                            <div className={"content"}>
+
+                                <h2>退会する</h2>
+                                <div className={"container-item"}>
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        id="withdraw"
+                                        label="ユーザーネームを入力してください"
+                                        name="email"
+                                        autoComplete="email"
+                                        autoFocus
+                                        onChange={(e) => this.setState({withdraw: e.target.value})}
+                                    />
+
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        style={{color: "black"}}
+                                        className={"submit"}
+                                        onClick={() =>{
+                                            if(this.state.withdraw != property.userName )alert("名前が違います！！")
+                                                this.props.WithdrawUser() }}
+                                    >
+                                        退会する
+                                    </Button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </Paper>*/}
                 </Container>
             </section>
         )

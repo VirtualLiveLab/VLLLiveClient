@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import AppListItem from "../../resouces/AppListItem"
-import {Home, Info, AccountCircle} from "@material-ui/icons";
+import {Home, Info, AccountCircle, YouTube} from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
 import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "../../../styles/mainStyle";
@@ -33,6 +33,7 @@ class Bar extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.props.verifyLogin()
+        this.props.getUserCount()
     }
 
     state = {
@@ -61,6 +62,9 @@ class Bar extends React.Component<Props, State> {
                         <AppListItem name={"トップページ"} link={"/"} Icon={Home}/>
                         <Divider/>
                         <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
+                        <a href={clientConfig.youtubeLive}>
+                            <AppListItem name={"Youtube Live"} Icon={YouTube}/>
+                        </a>
                     </List>
                 </div>
             )
@@ -72,6 +76,9 @@ class Bar extends React.Component<Props, State> {
                         <Divider/>
                         <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
                         <AppListItem name={"ユーザ情報"} link={"/account"} Icon={AccountCircle}/>
+                        <a href={clientConfig.youtubeLive}>
+                            <AppListItem name={"Youtube Live"} Icon={Info}/>
+                        </a>
                         <Divider/>
                         <a href={clientConfig.root + "/logout"}>
                             <AppListItem name={"ログアウト"} link={"/logout"} Icon={Info}/>

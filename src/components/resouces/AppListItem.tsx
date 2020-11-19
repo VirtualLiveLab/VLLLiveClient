@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps} from 'react-router-dom'
 
 interface Props extends RouteComponentProps{
     name: string,
-    link: string,
+    link?: string,
     Icon: SvgIconComponent
 }
 
@@ -20,7 +20,7 @@ class AppListItem extends React.Component<Props> {
     render() {
         return (
             <ListItem button onClick={async () => {
-                await this.handleToLinkPage(this.props.link)
+                if(this.props.link) await this.handleToLinkPage(this.props.link)
             }}>
                 <ListItemIcon>
                     <this.props.Icon style={style}/>

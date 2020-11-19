@@ -7,11 +7,12 @@ import store from '../store/store'
 import clientConfig from "../utils/config";
 const actionCreator = actionCreatorFactory();
 const root = clientConfig.root
-const sleep = (msec: number)=> new Promise(resolve => setTimeout(resolve, msec));
+// const sleep = (msec: number)=> new Promise(resolve => setTimeout(resolve, msec));
 
 //get
-export function get (url: string, action?:(json: any)=>Action):void {fetch(root + url).then(res => res.json().then(data => {if (res.ok && action) action(data);}));}
+export function get (url: string, action?:(json: any)=>Action):void {fetch(root + url).then(res => res.json().then(data => {if (res.ok && action) action(data)}));}
 export const confirm =(url: string, action:(ok:boolean)=>Action):void => {fetch(root + url).then(res => action(res.ok))}
+
 
 //post
 export const uploadFile = async (url: string, file: File) : Promise<any> => {
@@ -25,9 +26,8 @@ export const uploadFile = async (url: string, file: File) : Promise<any> => {
         referrerPolicy: 'no-referrer',
         body: formData,
     }).catch(err => console.log(err))
-    await sleep(3000);
-    store.dispatch(LoginAction.getUserIcon)
 }
+
 export const setUser = async (url: string, name: string): Promise<any> =>{
     if(name === '' || !name) return
     const data = JSON.stringify({username: name})
@@ -42,14 +42,14 @@ export const setUser = async (url: string, name: string): Promise<any> =>{
         referrerPolicy: 'no-referrer',
         body: data,
     }).catch(err => console.log(err))
-    await sleep(3000);
-    store.dispatch(LoginAction.getUserProperty)
+    setTimeout(()=>{store.dispatch(LoginAction.getUserProperty)}, 5000)
 }
 
 
 //Actionの生成
 export const LoginAction = {
     IsLogin: actionCreator<boolean>("IsLogin"),
+    getCount: actionCreator<number>("GetCount"),
     Logout: actionCreator("Logout"),
     getUserProperty: actionCreator<IPropertyState>("GetUserProperty"),
     getUserIcon:actionCreator<IUserIconState>("GetUserIcon"),

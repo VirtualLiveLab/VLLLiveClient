@@ -7,7 +7,11 @@
     .box{ display: flex;}
     hr{ height: 10px; background-color: blue; width: 40%; border: 2px solid gray;}
     @media screen and (max-width: 767px) { /*ウィンドウ幅が767px以下の場合に適用*/
-        .flex {}
+        .flex {
+
+            margin: 4px;
+            padding: 10px;
+        }
     }
     @media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
         .flex{
@@ -17,15 +21,28 @@
         }
 
     }
+    @media screen and (max-width: 767px) { /*ウィンドウ幅が767px以下の場合に適用*/
+        .container-item {
+            margin-top: 6%;
+            margin-bottom: 6%;
+        }
+
+    }
+    @media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
+        .container-item {
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+    }
     .container-item {
-        margin-top: 2%;
-        margin-bottom: 2%;
         margin-left: 4%;
         margin-right: 4%;
         .center { text-align: center;}
         .left { text-align: left;}
         .right {text-align: right;}
     }
+
 
 
     a{

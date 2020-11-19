@@ -1,4 +1,5 @@
-const root = "http://localhost:3010";
+const root = "https://mikuec2020.com"
+//const root = "http://localhost:3010"
 const clientConfig = {
     root: root,
     qr: root + "/qr.png",
@@ -6,7 +7,8 @@ const clientConfig = {
     twitterLogin: root + "/auth/twitter",
     zip: root + "/vll-live-app.zip",
     youtube: "https://www.youtube.com/channel/UCkprx7qIvwfS4pFfx9nTx6A/featured",
-    niconico: "https://www.nicovideo.jp/user/86434165/video?ref=pc_userpage_menu",
+    youtubeLive: "https://www.youtube.com/watch?v=Ougnci3N-t0",
+    count: 1500,
 }
 
 export default clientConfig;

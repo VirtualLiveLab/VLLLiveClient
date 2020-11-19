@@ -25,7 +25,7 @@ export default class TopAbout extends React.Component<any, any> {
                                 <h3>20:00時開演</h3>
                             </div>
                             <Button variant="outlined" color={"primary"}>
-                                詳しい参加方法をみる！！
+                                <Link to={"/about"}>詳しい参加方法をみる！！</Link>
                             </Button>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ export default class TopAbout extends React.Component<any, any> {
                         <div className={"center"}>
                             <h2 className={"line"}>会場</h2>
 
-                            <div className={"flex"}>
+                            <div className={"flex button-container"}>
                                 <div className={"container-item center"}>
                                 <h2>参加方法そのA: MIKUECライブアプリをダウンロードする</h2>
                                 <p>MIKUEC2020の特設サイトが下記のリンクで公開中!?</p>
@@ -44,7 +44,7 @@ export default class TopAbout extends React.Component<any, any> {
                                     <div className="arrow-bottom"/>
                                 </div>
                                 <Button variant={"outlined"} color={"primary"}>
-                                    <Link to={"/"}>Topへ移動する</Link>
+                                    <Link to={"/about"}>参加方法へ移動する</Link>
                                 </Button>
                                 </div>
                                 <div className={"container-item center"}>
@@ -55,14 +55,11 @@ export default class TopAbout extends React.Component<any, any> {
                                 <div className={"container-item center"}>
                                     <ul className="button-container">
                                         <div className={"broadcast"}>
-                                        <a className={"btn04 google"} href={clientConfig.youtube} onClick={() => {
-                                        }}><span>Youtube</span></a>
-                                        <a className={"btn04 twitter"} href={clientConfig.niconico} onClick={() => {
-                                        }}><span>ニコニコ動画</span></a>
+                                            <a className={"btn04 google"} href={clientConfig.youtubeLive} onClick={() => {
+                                            }}><span>Youtube</span></a>
                                         </div>
                                     </ul>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -92,6 +89,7 @@ export default class TopAbout extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }
