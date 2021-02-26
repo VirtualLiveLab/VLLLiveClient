@@ -9,7 +9,6 @@ export interface AccountDispatchProps {
     verifyLogin: () => void
     getUserProperty:()=>void
     getUserIcon:()=>void
-    getUserCount:() =>void
     setIcon:(file:File, url: string)=>void
     setUserProperty:(id: number, username: string) => void
     WithdrawUser:() => void
@@ -23,7 +22,7 @@ function mapDispatchToProps (dispatch: Dispatch): AccountDispatchProps {
         verifyLogin:() => confirm('/confirm_login', ok=> dispatch(LoginAction.IsLogin(ok))),
         getUserProperty:()=> get('/user/property', json => dispatch(LoginAction.getUserProperty({id: json.id, userName: json.username}))),
         getUserIcon:()=> get('/user/icon', json => dispatch(LoginAction.getUserIcon({iconPath: json.iconPath}))),
-        getUserCount:() => get('/user/count', json => dispatch(LoginAction.getCount(json.count))),
+        //getUserCount:() => get('/user/count', json => dispatch(LoginAction.getCount(json.count))),
         //ユーザーデータの変更
         setIcon:async (f, url) => {
             await uploadFile('/user/icon', f)

@@ -33,7 +33,7 @@ class Bar extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.props.verifyLogin()
-        this.props.getUserCount()
+        //this.props.getUserCount()
     }
 
     state = {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import clientConfig from "../../../utils/config";
+import {ClientConfig} from "../../../utils/config";
 import {ILoginState} from "../../../reducers/ILoginState";
 
 type Props = ILoginState
@@ -13,9 +13,9 @@ export default class TopHeader extends Component<Props> {
                         {!isLogin ?
                         <ul className="button-container">
                             <div className={"auth"}>
-                                <a className={"btn04 google"} href={clientConfig.googleLogin} onClick={() => {
+                                <a className={"btn04 google"} href={ClientConfig.googleLogin} onClick={() => {
                                 }}><span>Googleでログインする</span></a>
-                                <a className={"btn04 twitter"} href={clientConfig.twitterLogin} onClick={() => {
+                                <a className={"btn04 twitter"} href={ClientConfig.twitterLogin} onClick={() => {
                                 }}><span>Twitterでログインする</span></a>
                             </div>
                         </ul>
