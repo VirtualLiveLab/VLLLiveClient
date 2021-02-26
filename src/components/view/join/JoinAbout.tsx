@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Button} from "@material-ui/core";
-import clientConfig from "../../../utils/config";
+import {ClientConfig} from "../../../utils/config";
 import {Link} from "react-router-dom";
 import {IState} from "../../../store/store";
 import {AccountDispatchProps} from "../../../containers/AccountContainer";
@@ -66,9 +66,9 @@ class JoinAbout extends Component<Props> {
                                 </Button> ←こちらのリンクから認証キーををダウンロードして(有効期限15分)*/}
                                 <Button variant={"outlined"} color={"primary"} onClick={()=>{
                                     if(!isLogin)alert('ログインしてください')
-                                    else if (this.props.property.id > clientConfig.count) alert( "あなたのidは" + clientConfig.count+ "をこえました")
+                                    else if (this.props.property.id > Number(ClientConfig.count)) alert( "あなたのidは" + ClientConfig.count+ "をこえました")
                                     }}>
-                                    {isLogin && this.props.property.id < clientConfig.count ? <a href={clientConfig.qr}>認証鍵をダウンロードする!!</a> : "認証鍵をダウンロードする!!"}
+                                    {isLogin && this.props.property.id < Number(ClientConfig.count) ? <a href={ClientConfig.qr}>認証鍵をダウンロードする!!</a> : "認証鍵をダウンロードする!!"}
                                 </Button> ←こちらのリンクから認証キーををダウンロードして(ライブ当日にダウンロードリンクの公開予定！！)
                             </p>
                             <p>'Select QR Code'からQrコードを選択してください.</p>

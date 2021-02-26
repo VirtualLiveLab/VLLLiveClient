@@ -15,7 +15,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "../../../styles/mainStyle";
 import {ILoginState} from "../../../reducers/ILoginState";
 import {AuthDispatchProps} from "../../../containers/VerifyContainer";
-import clientConfig from "../../../utils/config";
+import {ClientConfig} from "../../../utils/config";
 
 interface StyleProps extends WithStyles<typeof styles> {
 }
@@ -62,7 +62,7 @@ class Bar extends React.Component<Props, State> {
                         <AppListItem name={"トップページ"} link={"/"} Icon={Home}/>
                         <Divider/>
                         <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
-                        <a href={clientConfig.youtubeLive}>
+                        <a href={ClientConfig.youtubeLive}>
                             <AppListItem name={"Youtube Live"} Icon={YouTube}/>
                         </a>
                     </List>
@@ -76,11 +76,11 @@ class Bar extends React.Component<Props, State> {
                         <Divider/>
                         <AppListItem name={"参加方法"} link={"/about"} Icon={MenuIcon}/>
                         <AppListItem name={"ユーザ情報"} link={"/account"} Icon={AccountCircle}/>
-                        <a href={clientConfig.youtubeLive}>
+                        <a href={ClientConfig.youtubeLive}>
                             <AppListItem name={"Youtube Live"} Icon={Info}/>
                         </a>
                         <Divider/>
-                        <a href={clientConfig.root + "/logout"}>
+                        <a href={ClientConfig.root + "/logout"}>
                             <AppListItem name={"ログアウト"} link={"/logout"} Icon={Info}/>
                         </a>
 

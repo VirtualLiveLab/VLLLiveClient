@@ -4,9 +4,9 @@ import {IPropertyState} from "../reducers/IProperty";
 import {IUserIconState} from "../reducers/IUserIconState";
 import {ITokenState} from "../reducers/IRefreshToken";
 import store from '../store/store'
-import clientConfig from "../utils/config";
+import {ClientConfig} from "../utils/config";
 const actionCreator = actionCreatorFactory();
-const root = clientConfig.root
+const root = ClientConfig.root
 // const sleep = (msec: number)=> new Promise(resolve => setTimeout(resolve, msec));
 
 //get

@@ -1,6 +1,6 @@
 import React from "react";
 import {Button} from "@material-ui/core";
-import clientConfig from "../../../utils/config";
+import {ClientConfig} from "../../../utils/config";
 import {Link} from "react-router-dom";
 
 export default class TopAbout extends React.Component<any, any> {
@@ -55,7 +55,7 @@ export default class TopAbout extends React.Component<any, any> {
                                 <div className={"container-item center"}>
                                     <ul className="button-container">
                                         <div className={"broadcast"}>
-                                            <a className={"btn04 google"} href={clientConfig.youtubeLive} onClick={() => {
+                                            <a className={"btn04 google"} href={ClientConfig.youtubeLive} onClick={() => {
                                             }}><span>Youtube</span></a>
                                         </div>
                                     </ul>
