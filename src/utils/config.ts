@@ -1,6 +1,7 @@
 //const root = "https://mikuec2020.com"
 const root = "http://localhost:3010"
 const clientConfig = () => {
+
     let  url = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL : process.env.REACT_APP_PRODUCTION_URL;
     return {
         root: url,
