@@ -9,7 +9,6 @@ class JoinHeader extends PureComponent{
                     <div className={"container-item"}>
                         <div className={"center border"}>
                             <h1 className={"top"}>参加方法</h1>
-                            {/*<h4 className={"sub"}></h4>*/}
                         </div>
                     </div>
                 </div>

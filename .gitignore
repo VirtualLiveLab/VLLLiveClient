@@ -21,3 +21,16 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+debug.log
+
+# vscode
+.vscode
+
+# IntelliJ #
+/.idea/**/shelf/
+/.idea/**/tasks.xml
+/.idea/**/usage.statistics.xml
+/.idea/**/workspace.xml
+
+
